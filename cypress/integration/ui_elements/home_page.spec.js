@@ -1,38 +1,31 @@
+import {default_navigation_elements} from './default_elements';
+
 describe('Home Page', () => {
     context('Default Elements', () => {
         before('Access site', () => {
             cy.visit('/');
         });
 
-        it('Should have div navigation with contact and Sign in', () => {
-            cy.get('.shop-phone').should('exist');
-            cy.contains('Call us now: 0123-456-789').should('exist');
-            cy.contains('Contact us').should('have.attr', 'href', 'http://automationpractice.com/index.php?controller=contact');
-            cy.get('.login').should('have.attr', 'href', 'http://automationpractice.com/index.php?controller=my-account');
+        it('Should have default elements', () => {
+            default_navigation_elements();
         });
 
-        it('Should have second div with logo, search and cart', () => {
-            cy.get('#header_logo > a')
-                .should('exist')
-                .and('have.attr', 'href', 'http://automationpractice.com/');
-            cy.get('#header_logo > a > img').should('have.attr', 'src', 'http://automationpractice.com/img/logo.jpg');
-            cy.get('#searchbox')
-                .should(($form) => {
-                    expect($form).to.be.visible;
-                    expect($form).to.have.attr('action', 'http://automationpractice.com/index.php?controller=search');
-              });
-            cy.get('#searchbox').children()
+        it('Should have home page elements', () => {
+            cy.get('#columns').children()
+                .should(($) => {
+                    expect($).have.lengthOf(2);
+                    expect($[0]).to.be.visible;
+                    expect($[0]).to.have.attr('id', 'slider_row');
+                    expect($[1]).to.be.visible;
+                    expect($[1]).to.have.attr('class', 'row');
+                });
+            cy.get('#homeslider').children({force: true})
                 .should(($) => {
                     expect($).have.lengthOf(5);
-                    expect($[0]).to.be.hidden;
-                    expect($[1]).to.be.hidden;
-                    expect($[2]).to.be.hidden;
-                    expect($[3]).to.be.visible;
-                    expect($[4]).to.be.visible;
-                    expect($[4]).to.be.visible;
-                    expect($[4]).to.have.attr('type', 'submit');
+                    expect($[0]).to.be.visible;
+                    expect($[0]).to.have.attr('style');
                 });
-            cy.get('.shopping_cart > a').should('have.attr', 'href', 'http://automationpractice.com/index.php?controller=order');
+            
         });
     });
 });
