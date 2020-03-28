@@ -50,8 +50,8 @@ Open the project using VSCode.
 ## Running the tests
 
 ```
- $ npx cypress open - Open cypress interface.
- $ npx cypress run - Run all in headless.
+ $ npm run cypress open - Open cypress interface.
+ $ npm run cypress run - Run all in headless.
 ```
 
 Accessing package.json, you can create scripts to open or run cypress:
