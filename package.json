@@ -1,0 +1,24 @@
+{
+  "name": "basics-cypress-end-to-end",
+  "version": "1.0.0",
+  "description": "A packaged example for basics-cypress-end-to-end",
+  "main": "index.js",
+  "dependencies": {
+    "cypress": "^4.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "cypress": "cypress open",
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bqmelo/basics-cypress-end-to-end.git"
+  },
+  "author": "Bruna Quinhones de Melo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bqmelo/basics-cypress-end-to-end/issues"
+  },
+  "homepage": "https://github.com/bqmelo/basics-cypress-end-to-end#readme"
+}
