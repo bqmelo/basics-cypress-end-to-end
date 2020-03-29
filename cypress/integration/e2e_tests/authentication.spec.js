@@ -86,6 +86,6 @@ describe('Authentication page', () => {
             cy.get('#SubmitLogin').click();
             cy.get('.alert > p').should('contain', 'There is 1 error');
             cy.get('.alert > ol > li').should('contain', 'Authentication failed.');
-        }) 
+        });
     });
 });
