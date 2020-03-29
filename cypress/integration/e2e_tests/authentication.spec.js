@@ -1,5 +1,6 @@
 describe('Authentication page', () => {
     context('Login successfully', () => {
+        
         beforeEach('Access site', () => {
             cy.visit('/');
             cy.get('.login').click();
@@ -62,13 +63,28 @@ describe('Authentication page', () => {
         before('Access login page', () => {
             cy.visit('/');
             cy.get('.login').click();
-        })
+        });
 
         it('Should trigger error when invalid email', () => {
             cy.get('#email').type('emailinvalid');
             cy.get('#SubmitLogin').click();
             cy.get('.alert > p').should('contain', 'There is 1 error');
             cy.get('.alert > ol > li').should('contain', 'Invalid email address.');
+        });
+
+        it('Should trigger error when email does not filled', () => {
+            cy.get('#passwd').type('12345678');
+            cy.get('#SubmitLogin').click();
+            cy.get('.alert > p').should('contain', 'There is 1 error');
+            cy.get('.alert > ol > li').should('contain', 'An email address required.');
+        });
+        
+        it('Should trigger error when email does not registered', () => {
+            cy.get('#email').type('email@mailinator.com');
+            cy.get('#passwd').type('12345678');
+            cy.get('#SubmitLogin').click();
+            cy.get('.alert > p').should('contain', 'There is 1 error');
+            cy.get('.alert > ol > li').should('contain', 'Authentication failed.');
         }) 
-    })
+    });
 });
