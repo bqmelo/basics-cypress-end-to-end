@@ -32,7 +32,6 @@ describe('Sign in Page', () => {
                     expect($[0]).to.contain('Email address');
                     expect($[1]).to.have.attr('type', 'text');
                 });
-
         });
     });
 });
