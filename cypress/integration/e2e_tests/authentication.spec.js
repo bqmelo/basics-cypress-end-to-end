@@ -1,6 +1,6 @@
 describe('Authentication page', () => {
     context('Login successfully', () => {
-        
+
         beforeEach('Access site', () => {
             cy.visit('/');
             cy.get('.login').click();
@@ -60,6 +60,7 @@ describe('Authentication page', () => {
     });
 
     context('Trigger errors', () => {
+        
         before('Access login page', () => {
             cy.visit('/');
             cy.get('.login').click();
